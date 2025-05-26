@@ -1,29 +1,99 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body, html, .mystery-bg {
+    height: 100%;
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    position: relative;
+    font-family: 'Quicksand', Arial, sans-serif;
 }
 
-.container {
-    text-align: center;
+.centered-content {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: #4b3869;
+    margin-bottom: 0.5em;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #fff7;
 }
 
-#drawButton {
-    padding: 10px 20px;
-    font-size: 18px;
+.subtitle {
+    font-size: 1.3rem;
+    color: #6d5b97;
+    margin-bottom: 2em;
+    letter-spacing: 1px;
+}
+
+.mystery-btn {
+    background: #fff;
+    color: #7f53ac;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 1em 2.5em;
+    border: none;
+    border-radius: 2em;
+    box-shadow: 0 4px 24px 0 #7f53ac44;
     cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    margin-bottom: 2em;
+    outline: none;
+}
+.mystery-btn:hover, .mystery-btn:focus {
+    background: #7f53ac;
+    color: #fff;
+    transform: scale(1.05);
 }
 
-#cardContainer img {
-    max-width: 300px;
-    max-height: 300px;
-    margin-top: 20px;
+.card-container {
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarot-card {
+    width: 180px;
+    height: 280px;
+    border-radius: 1em;
+    box-shadow: 0 8px 32px 0 #4b386966;
+    border: 2px solid #fff;
+    background: #fff;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.tarot-card.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Make sure the canvas is behind everything */
+#stars-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+.mystery-bg {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.container {
+    position: relative;
+    z-index: 1;
 }

@@ -24,7 +24,7 @@
     <canvas id="stars-bg"></canvas>
 </div>
 
-<script src="script.js"></script>
+<script src="../backend/script.js"></script>
 <!-- Optional: Add a script for the star effect -->
 <script>
     // Simple star background effect
@@ -49,109 +49,6 @@
         setInterval(drawStars, 1000);
         drawStars();
     }
-
-    // Card drawing logic
-    const cardImages = [
-        '/assets/cards/C01_AceOfCup.jpg',
-        '/assets/cards/C02_2cups.jpg',
-        '/assets/cards/C03_3cups.jpg',
-        '/assets/cards/C04_4cups.jpg',
-        '/assets/cards/C05_5cups.jpg',
-        '/assets/cards/C06_6cups.jpg',
-        '/assets/cards/C07_7cups.jpg',
-        '/assets/cards/C08_8cups.jpg',
-        '/assets/cards/C09_9cups.jpg',
-        '/assets/cards/C10_10cups.jpg',
-        '/assets/cards/C11_PageOfCups.jpg',
-        '/assets/cards/C12_KnightOfCups.jpg',
-        '/assets/cards/C13_QueenOfCups.jpg',
-        '/assets/cards/C14_KingOfCups.jpg',
-        '/assets/cards/P01_AceOfPentacles.jpg',
-        '/assets/cards/P02_2pentacles.jpg',
-        '/assets/cards/P03_3pentacles.jpg',
-        '/assets/cards/P04_4pentacles.jpg',
-        '/assets/cards/P05_5pentacles.jpg',
-        '/assets/cards/P06_6pentacles.jpg',
-        '/assets/cards/P07_7pentacles.jpg',
-        '/assets/cards/P08_8pentacles.jpg',
-        '/assets/cards/P09_9pentacles.jpg',
-        '/assets/cards/P10_10pentacles.jpg',
-        '/assets/cards/P11_PageOfPentacles.jpg',
-        '/assets/cards/P12_KnightOfPentacles.jpg',
-        '/assets/cards/P13_QueenOfPentacles.jpg',
-        '/assets/cards/P14_KingOfPentacles.jpg',
-        '/assets/cards/S01_AceOfSwords.jpg',
-        '/assets/cards/S02_2swords.jpg',
-        '/assets/cards/S03_3swords.jpg',
-        '/assets/cards/S04_4swords.jpg',
-        '/assets/cards/S05_5swords.jpg',
-        '/assets/cards/S06_6swords.jpg',
-        '/assets/cards/S07_7swords.jpg',
-        '/assets/cards/S08_8swords.jpg',
-        '/assets/cards/S09_9swords.jpg',
-        '/assets/cards/S10_10swords.jpg',
-        '/assets/cards/S11_PageOfSwords.jpg',
-        '/assets/cards/S12_KnightOfSwords.jpg',
-        '/assets/cards/S13_QueenOfSwords.jpg',
-        '/assets/cards/S14_KingOfSwords.jpg',
-        '/assets/cards/W01_AceOfWands.jpg',
-        '/assets/cards/W02_2wands.jpg',
-        '/assets/cards/W03_3wands.jpg',
-        '/assets/cards/W04_4wands.jpg',
-        '/assets/cards/W05_5wands.jpg',
-        '/assets/cards/W06_6wands.jpg',
-        '/assets/cards/W07_7wands.jpg',
-        '/assets/cards/W08_8wands.jpg',
-        '/assets/cards/W09_9wands.jpg',
-        '/assets/cards/W10_10wands.jpg',
-        '/assets/cards/W11_PageOfWands.jpg',
-        '/assets/cards/W12_KnightOfWands.jpg',
-        '/assets/cards/W13_QueenOfWands.jpg',
-        '/assets/cards/W14_KingOfWands.jpg',
-        '/assets/cards/Major_00_TheFool.jpg',
-        '/assets/cards/Major_01_TheMagician.jpg',
-        '/assets/cards/Major_02_TheHighPriestess.jpg',
-        '/assets/cards/Major_03_TheEmpress.jpg',
-        '/assets/cards/Major_04_TheEmperor.jpg',
-        '/assets/cards/Major_05_TheHierophant.jpg',
-        '/assets/cards/Major_06_TheLovers.jpg',
-        '/assets/cards/Major_07_TheChariot.jpg',
-        '/assets/cards/Major_08_Strength.jpg',
-        '/assets/cards/Major_09_TheHermit.jpg',
-        '/assets/cards/Major_10_WheelOfFortune.jpg',
-        '/assets/cards/Major_11_Justice.jpg',
-        '/assets/cards/Major_12_TheHangedMan.jpg',
-        '/assets/cards/Major_13_Death.jpg',
-        '/assets/cards/Major_14_Temperance.jpg',
-        '/assets/cards/Major_15_TheDevil.jpg',
-        '/assets/cards/Major_16_TheTower.jpg',
-        '/assets/cards/Major_17_TheStar.jpg',
-        '/assets/cards/Major_18_TheMoon.jpg',
-        '/assets/cards/Major_19_TheSun.jpg',
-        '/assets/cards/Major_20_Judgement.jpg',
-        '/assets/cards/Major_21_TheWorld.jpg'
-    ];
-    const drawButton = document.getElementById('drawButton');
-    const cardContainer = document.getElementById('cardContainer');
-
-    drawButton.addEventListener('click', function() {
-        // Pick a random card
-        const randomIndex = Math.floor(Math.random() * cardImages.length);
-        const cardImgSrc = cardImages[randomIndex];
-
-        // Remove previous card if any
-        cardContainer.innerHTML = '';
-
-        // Create and animate card image
-        const img = document.createElement('img');
-        img.src = cardImgSrc;
-        img.alt = 'Tarot Card';
-        img.className = 'tarot-card fade-in';
-        img.onerror = function() {
-            this.src = 'https://via.placeholder.com/180x280/ffffff/cccccc?text=';
-        };
-        cardContainer.appendChild(img);
-    });
 </script>
 </body>
 

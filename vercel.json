@@ -1,5 +1,7 @@
 {
-  "public": "src/frontpage",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/src/frontpage/index.html" }
+  ]
 }

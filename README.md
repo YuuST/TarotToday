@@ -23,14 +23,14 @@ A simple web app to draw a random Tarot card and reveal your fortune.
 
 ## Troubleshooting
 - **Card does not appear when you click the button:**
-  - Make sure the image filenames in `src/assets/cards` match those listed in `src/backend/script.js`.
+  - Make sure the image filenames in `src/assets/cards` match those listed in `src/frontpage/script.js`.
   - Check the browser console for errors about missing images.
   - Ensure the server is running and you are accessing the correct URL.
 
 ## Project Structure
 - `src/assets/cards/` — Tarot card images
-- `src/frontpage/homepage.html` — Main web page
-- `src/backend/script.js` — Card drawing logic
+- `src/frontpage/index.html` — Main web page
+- `src/frontpage/script.js` — Card drawing logic
 - `src/frontpage/styles.css` — Styles
 
 ## License

@@ -97,3 +97,27 @@ body, html, .mystery-bg {
     position: relative;
     z-index: 1;
 }
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .tarot-card,
+  img[alt="Card"] {
+    width: 120px !important;
+    height: 180px !important;
+  }
+  .container {
+    padding: 1em;
+  }
+  .mystery-btn {
+    font-size: 1rem;
+    padding: 0.7em 1.5em;
+  }
+  .card-container {
+    min-height: 180px;
+  }
+}

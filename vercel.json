@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/", "destination": "/src/frontpage/homepage.html" },
-    { "source": "/script.js", "destination": "/src/frontpage/script.js" },
+    { "source": "/script.js", "destination": "/src/backend/script.js" },
     { "source": "/styles.css", "destination": "/src/frontpage/styles.css" },
     { "source": "/assets/cards/(.*)", "destination": "/src/assets/cards/$1" },
     { "source": "/assets/(.*)", "destination": "/src/assets/$1" }

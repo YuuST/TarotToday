@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "live-server ./src/frontpage"
+    "dev": "live-server ./src/frontpage",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "eslint": "^8.57.0"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.2.0"

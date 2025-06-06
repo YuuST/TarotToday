@@ -171,7 +171,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const drawButton = document.getElementById('drawButton');
     const cardContainer = document.getElementById('cardContainer');
 
+    // Helper to get today's date as YYYY-MM-DD
+    function getTodayString() {
+        const d = new Date();
+        return d.getFullYear() + '-' + (d.getMonth() + 1).toString().padStart(2, '0') + '-' + d.getDate().toString().padStart(2, '0');
+    }
+
+    // Check if user already drew a card today
+    function alreadyDrewToday() {
+        const lastDrawDate = localStorage.getItem('tarot-draw-date');
+        return lastDrawDate === getTodayString();
+    }
+
+    // Show the drawn card
+    function showDrawnCard(imageName, extraMessage) {
+        const imagePath = `${folderPath}/${imageName}`;
+        const meaning = cardMeanings[imageName] || 'Meaning not found.';
+        cardContainer.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                ${extraMessage ? `<div style="color:#7f53ac; font-size:1.2em; text-align:center; margin-bottom:1em;">
+                    ${extraMessage}
+                </div>` : ''}
+                <img src="${imagePath}" alt="Card" style="width:180px;height:280px;border-radius:1em;box-shadow:0 8px 32px 0 #4b386966;border:2px solid #fff;background:#fff;object-fit:contain;">
+                <div style="margin-top: 1em; font-size: 1.1em; color: #4b3869; text-align: center; max-width: 220px;">
+                    ${meaning}
+                </div>
+            </div>
+        `;
+    }
+
+    // Show "already have your destiny" message (only on button click, keep card)
+    function showAlreadyDrewMessageWithCard() {
+        const drawnCard = localStorage.getItem('tarot-draw-card');
+        if (drawnCard) {
+            showDrawnCard(drawnCard, 'Already have your destiny today,<br>come back tomorrow!');
+        }
+    }
+
+    // On page load, if already drew, show previous card (never the message)
+    if (alreadyDrewToday()) {
+        const drawnCard = localStorage.getItem('tarot-draw-card');
+        if (drawnCard) {
+            showDrawnCard(drawnCard);
+        }
+    }
+
     drawButton.addEventListener('click', () => {
+        if (alreadyDrewToday()) {
+            showAlreadyDrewMessageWithCard();
+            return;
+        }
         const randomImageName = imageNames[Math.floor(Math.random() * imageNames.length)];
         const imagePath = `${folderPath}/${randomImageName}`;
         const meaning = cardMeanings[randomImageName] || 'Meaning not found.';
@@ -201,6 +250,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${meaning}
                     </div>
                 </div>`;
+                // Store today's date and card in localStorage
+                localStorage.setItem('tarot-draw-date', getTodayString());
+                localStorage.setItem('tarot-draw-card', randomImageName);
             }, 500); // 500ms delay for demo
         };
         img.onerror = () => {

@@ -1,7 +1,7 @@
 // Use correct path for assets relative to the HTML file that loads this script.
 // If your HTML is at src/frontpage/homepage.html and assets are at src/assets/cards,
 // the correct path is '../assets/cards' (if script.js is loaded from frontpage).
-const folderPath = '../assets/cards';
+const folderPath = 'assets/cards';
 
 // Replace 'image_names' with the names of your card images (e.g., 'card1.jpg', 'card2.jpg', ...)
 const imageNames = [
